@@ -1,0 +1,756 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/timdp/es6-promise-pool#readme"
+
+    >es6-promise-pool (v2.4.4)</a>
+</h1>
+<h4>Runs Promises in a pool that limits their concurrency.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.es6-promise-pool">module es6-promise-pool</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.es6-promise-pool">
+            function <span class="apidocSignatureSpan"></span>es6-promise-pool
+            <span class="apidocSignatureSpan">(source, concurrency, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool">
+            function <span class="apidocSignatureSpan">es6-promise-pool.</span>PromisePool
+            <span class="apidocSignatureSpan">(source, concurrency, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePoolEvent">
+            function <span class="apidocSignatureSpan">es6-promise-pool.</span>PromisePoolEvent
+            <span class="apidocSignatureSpan">(target, type, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">es6-promise-pool.</span>PromisePool.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.es6-promise-pool.PromisePool">module es6-promise-pool.PromisePool</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.PromisePool">
+            function <span class="apidocSignatureSpan">es6-promise-pool.</span>PromisePool
+            <span class="apidocSignatureSpan">(source, concurrency, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.PromisePoolEvent">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.</span>PromisePoolEvent
+            <span class="apidocSignatureSpan">(target, type, data)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.es6-promise-pool.PromisePool.prototype">module es6-promise-pool.PromisePool.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.prototype._fireEvent">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_fireEvent
+            <span class="apidocSignatureSpan">(type, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.prototype._onPooledPromiseFulfilled">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_onPooledPromiseFulfilled
+            <span class="apidocSignatureSpan">(promise, result)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.prototype._onPooledPromiseRejected">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_onPooledPromiseRejected
+            <span class="apidocSignatureSpan">(promise, error)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.prototype._proceed">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_proceed
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.prototype._settle">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_settle
+            <span class="apidocSignatureSpan">(error)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.prototype._trackPromise">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_trackPromise
+            <span class="apidocSignatureSpan">(promise)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.prototype.active">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>active
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.prototype.concurrency">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>concurrency
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.prototype.constructor">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>constructor
+            <span class="apidocSignatureSpan">(source, concurrency, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.prototype.promise">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>promise
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.prototype.size">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>size
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.es6-promise-pool.PromisePool.prototype.start">
+            function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>start
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_listeners</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.es6-promise-pool" id="apidoc.module.es6-promise-pool">module es6-promise-pool</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.es6-promise-pool" id="apidoc.element.es6-promise-pool.es6-promise-pool">
+        function <span class="apidocSignatureSpan"></span>es6-promise-pool
+        <span class="apidocSignatureSpan">(source, concurrency, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">es6-promise-pool = function (source, concurrency, options) {
+  EventTarget.call(this)
+  if (typeof concurrency !== &#x27;number&#x27; ||
+      Math.floor(concurrency) !== concurrency ||
+      concurrency &#x3c; 1) {
+    throw new Error(&#x27;Invalid concurrency&#x27;)
+  }
+  this._concurrency = concurrency
+  this._options = options || {}
+  this._options.promise = this._options.promise || Promise
+  this._iterator = toIterator(source, this._options.promise)
+  this._done = false
+  this._size = 0
+  this._promise = null
+  this._callbacks = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool" id="apidoc.element.es6-promise-pool.PromisePool">
+        function <span class="apidocSignatureSpan">es6-promise-pool.</span>PromisePool
+        <span class="apidocSignatureSpan">(source, concurrency, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">PromisePool = function (source, concurrency, options) {
+  EventTarget.call(this)
+  if (typeof concurrency !== &#x27;number&#x27; ||
+      Math.floor(concurrency) !== concurrency ||
+      concurrency &#x3c; 1) {
+    throw new Error(&#x27;Invalid concurrency&#x27;)
+  }
+  this._concurrency = concurrency
+  this._options = options || {}
+  this._options.promise = this._options.promise || Promise
+  this._iterator = toIterator(source, this._options.promise)
+  this._done = false
+  this._size = 0
+  this._promise = null
+  this._callbacks = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePoolEvent" id="apidoc.element.es6-promise-pool.PromisePoolEvent">
+        function <span class="apidocSignatureSpan">es6-promise-pool.</span>PromisePoolEvent
+        <span class="apidocSignatureSpan">(target, type, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">PromisePoolEvent = function (target, type, data) {
+  this.target = target
+  this.type = type
+  this.data = data
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.es6-promise-pool.PromisePool" id="apidoc.module.es6-promise-pool.PromisePool">module es6-promise-pool.PromisePool</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.PromisePool" id="apidoc.element.es6-promise-pool.PromisePool.PromisePool">
+        function <span class="apidocSignatureSpan">es6-promise-pool.</span>PromisePool
+        <span class="apidocSignatureSpan">(source, concurrency, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">PromisePool = function (source, concurrency, options) {
+  EventTarget.call(this)
+  if (typeof concurrency !== &#x27;number&#x27; ||
+      Math.floor(concurrency) !== concurrency ||
+      concurrency &#x3c; 1) {
+    throw new Error(&#x27;Invalid concurrency&#x27;)
+  }
+  this._concurrency = concurrency
+  this._options = options || {}
+  this._options.promise = this._options.promise || Promise
+  this._iterator = toIterator(source, this._options.promise)
+  this._done = false
+  this._size = 0
+  this._promise = null
+  this._callbacks = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.PromisePoolEvent" id="apidoc.element.es6-promise-pool.PromisePool.PromisePoolEvent">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.</span>PromisePoolEvent
+        <span class="apidocSignatureSpan">(target, type, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">PromisePoolEvent = function (target, type, data) {
+  this.target = target
+  this.type = type
+  this.data = data
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.es6-promise-pool.PromisePool.prototype" id="apidoc.module.es6-promise-pool.PromisePool.prototype">module es6-promise-pool.PromisePool.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.prototype._fireEvent" id="apidoc.element.es6-promise-pool.PromisePool.prototype._fireEvent">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_fireEvent
+        <span class="apidocSignatureSpan">(type, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_fireEvent = function (type, data) {
+  this.dispatchEvent(new PromisePoolEvent(this, type, data))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this._promise = null
+  this._callbacks = null
+}
+
+PromisePool.prototype._onPooledPromiseFulfilled = function (promise, result) {
+  this._size--
+  if (this.active()) {
+    this.<span class="apidocCodeKeywordSpan">_fireEvent</span>(&#x27;fulfilled&#x27;, {
+      promise: promise,
+      result: result
+    })
+    this._proceed()
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.prototype._onPooledPromiseFulfilled" id="apidoc.element.es6-promise-pool.PromisePool.prototype._onPooledPromiseFulfilled">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_onPooledPromiseFulfilled
+        <span class="apidocSignatureSpan">(promise, result)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onPooledPromiseFulfilled = function (promise, result) {
+  this._size--
+  if (this.active()) {
+    this._fireEvent(&#x27;fulfilled&#x27;, {
+      promise: promise,
+      result: result
+    })
+    this._proceed()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  }
+}
+
+PromisePool.prototype._trackPromise = function (promise) {
+  var that = this
+  promise
+    .then(function (result) {
+      that.<span class="apidocCodeKeywordSpan">_onPooledPromiseFulfilled</span>(promise, result)
+    }, function (error) {
+      that._onPooledPromiseRejected(promise, error)
+    })[&#x27;catch&#x27;](function (err) {
+      that._settle(new Error(&#x27;Promise processing failed: &#x27; + err))
+    })
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.prototype._onPooledPromiseRejected" id="apidoc.element.es6-promise-pool.PromisePool.prototype._onPooledPromiseRejected">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_onPooledPromiseRejected
+        <span class="apidocSignatureSpan">(promise, error)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_onPooledPromiseRejected = function (promise, error) {
+  this._size--
+  if (this.active()) {
+    this._fireEvent(&#x27;rejected&#x27;, {
+      promise: promise,
+      error: error
+    })
+    this._settle(error || new Error(&#x27;Unknown error&#x27;))
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+PromisePool.prototype._trackPromise = function (promise) {
+  var that = this
+  promise
+    .then(function (result) {
+      that._onPooledPromiseFulfilled(promise, result)
+    }, function (error) {
+      that.<span class="apidocCodeKeywordSpan">_onPooledPromiseRejected</span>(promise, error)
+    })[&#x27;catch&#x27;](function (err) {
+      that._settle(new Error(&#x27;Promise processing failed: &#x27; + err))
+    })
+}
+
+PromisePool.prototype._proceed = function () {
+  if (!this._done) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.prototype._proceed" id="apidoc.element.es6-promise-pool.PromisePool.prototype._proceed">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_proceed
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_proceed = function () {
+  if (!this._done) {
+    var result = null
+    while (this._size &#x3c; this._concurrency &#x26;&#x26;
+        !(result = this._iterator.next()).done) {
+      this._size++
+      this._trackPromise(result.value)
+    }
+    this._done = (result === null || !!result.done)
+  }
+  if (this._done &#x26;&#x26; this._size === 0) {
+    this._settle()
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+PromisePool.prototype = new EventTarget()
+PromisePool.prototype.constructor = PromisePool
+
+PromisePool.prototype.concurrency = function (value) {
+  if (typeof value !== &#x27;undefined&#x27;) {
+    this._concurrency = value
+    if (this.active()) {
+      this.<span class="apidocCodeKeywordSpan">_proceed</span>()
+    }
+  }
+  return this._concurrency
+}
+
+PromisePool.prototype.size = function () {
+  return this._size
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.prototype._settle" id="apidoc.element.es6-promise-pool.PromisePool.prototype._settle">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_settle
+        <span class="apidocSignatureSpan">(error)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_settle = function (error) {
+  if (error) {
+    this._callbacks.reject(error)
+  } else {
+    this._callbacks.resolve()
+  }
+  this._promise = null
+  this._callbacks = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+PromisePool.prototype._onPooledPromiseRejected = function (promise, error) {
+  this._size--
+  if (this.active()) {
+    this._fireEvent(&#x27;rejected&#x27;, {
+      promise: promise,
+      error: error
+    })
+    this.<span class="apidocCodeKeywordSpan">_settle</span>(error || new Error(&#x27;Unknown error&#x27;))
+  }
+}
+
+PromisePool.prototype._trackPromise = function (promise) {
+  var that = this
+  promise
+    .then(function (result) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.prototype._trackPromise" id="apidoc.element.es6-promise-pool.PromisePool.prototype._trackPromise">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>_trackPromise
+        <span class="apidocSignatureSpan">(promise)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_trackPromise = function (promise) {
+  var that = this
+  promise
+    .then(function (result) {
+      that._onPooledPromiseFulfilled(promise, result)
+    }, function (error) {
+      that._onPooledPromiseRejected(promise, error)
+    })[&#x27;catch&#x27;](function (err) {
+      that._settle(new Error(&#x27;Promise processing failed: &#x27; + err))
+    })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+PromisePool.prototype._proceed = function () {
+  if (!this._done) {
+    var result = null
+    while (this._size &#x3c; this._concurrency &#x26;&#x26;
+        !(result = this._iterator.next()).done) {
+      this._size++
+      this.<span class="apidocCodeKeywordSpan">_trackPromise</span>(result.value)
+    }
+    this._done = (result === null || !!result.done)
+  }
+  if (this._done &#x26;&#x26; this._size === 0) {
+    this._settle()
+  }
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.prototype.active" id="apidoc.element.es6-promise-pool.PromisePool.prototype.active">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>active
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">active = function () {
+  return !!this._promise
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+PromisePool.prototype = new EventTarget()
+PromisePool.prototype.constructor = PromisePool
+
+PromisePool.prototype.concurrency = function (value) {
+  if (typeof value !== &#x27;undefined&#x27;) {
+    this._concurrency = value
+    if (this.<span class="apidocCodeKeywordSpan">active</span>()) {
+      this._proceed()
+    }
+  }
+  return this._concurrency
+}
+
+PromisePool.prototype.size = function () {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.prototype.concurrency" id="apidoc.element.es6-promise-pool.PromisePool.prototype.concurrency">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>concurrency
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">concurrency = function (value) {
+  if (typeof value !== &#x27;undefined&#x27;) {
+    this._concurrency = value
+    if (this.active()) {
+      this._proceed()
+    }
+  }
+  return this._concurrency
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.prototype.constructor" id="apidoc.element.es6-promise-pool.PromisePool.prototype.constructor">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>constructor
+        <span class="apidocSignatureSpan">(source, concurrency, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">constructor = function (source, concurrency, options) {
+  EventTarget.call(this)
+  if (typeof concurrency !== &#x27;number&#x27; ||
+      Math.floor(concurrency) !== concurrency ||
+      concurrency &#x3c; 1) {
+    throw new Error(&#x27;Invalid concurrency&#x27;)
+  }
+  this._concurrency = concurrency
+  this._options = options || {}
+  this._options.promise = this._options.promise || Promise
+  this._iterator = toIterator(source, this._options.promise)
+  this._done = false
+  this._size = 0
+  this._promise = null
+  this._callbacks = null
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.prototype.promise" id="apidoc.element.es6-promise-pool.PromisePool.prototype.promise">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>promise
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">promise = function () {
+  return this._promise
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.prototype.size" id="apidoc.element.es6-promise-pool.PromisePool.prototype.size">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>size
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">size = function () {
+  return this._size
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.es6-promise-pool.PromisePool.prototype.start" id="apidoc.element.es6-promise-pool.PromisePool.prototype.start">
+        function <span class="apidocSignatureSpan">es6-promise-pool.PromisePool.prototype.</span>start
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">start = function () {
+  var that = this
+  var Promise = this._options.promise
+  this._promise = new Promise(function (resolve, reject) {
+    that._callbacks = {
+      reject: reject,
+      resolve: resolve
+    }
+    that._proceed()
+  })
+  return this._promise
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// The number of promises to process simultaneously.
+var concurrency = 3
+
+// Create a pool.
+var pool = new PromisePool(promiseProducer, concurrency)
+
+// Start the pool.
+var poolPromise = pool.<span class="apidocCodeKeywordSpan">start</span>()
+
+// Wait for the pool to settle.
+poolPromise.then(function () {
+  console.log(&#x27;All promises fulfilled&#x27;)
+}, function (error) {
+  console.log(&#x27;Some promise rejected: &#x27; + error.message)
+})
+...</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
